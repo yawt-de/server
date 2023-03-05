@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('workout_workout_day', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Workout::class);
+            $table->foreignIdFor(WorkoutDay::class);
+            $table->boolean('is_enabled');
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('workout_workout_day');
     }
 };

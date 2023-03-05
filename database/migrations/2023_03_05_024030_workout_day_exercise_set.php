@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('workout_day_exercise_set', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Workout::class);
+            $table->foreignIdFor(ExerciseSet::class);
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('workout_day_exercise_set');
     }
 };

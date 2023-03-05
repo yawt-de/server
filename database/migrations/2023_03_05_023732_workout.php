@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('workout', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignIdFor(User::class);
+            $table->boolean('is_private');
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('workout');
     }
 };

@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('audit_log', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(ActionType::class);
+            $table->foreignIdFor(ApiToken::class);
+            $table->ipAddress('remote_address');
+            $table->string('detail_text');
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('audit_log');
     }
 };

@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('set_repetition', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Repetition::class);
+            $table->foreignIdFor(Set::class);
+            $table->integer('order');
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('set_repetition');
     }
 };

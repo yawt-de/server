@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('repetition', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Unit::class);
+            $table->integer('count');
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('repetition');
     }
 };
