@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Weekday extends Model
+class WorkoutDay extends Model
 {
     use HasFactory;
 
     public int $name;
+    public int $weekdayId;
 
     protected $fillable = [
-        'name'
+        'name',
+        'weekday_id'
     ];
 
-    protected $table = 'weekday';
+    protected $table = 'workout_day';
 }

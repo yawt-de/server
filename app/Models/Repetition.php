@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Weekday extends Model
+class Repetition extends Model
 {
     use HasFactory;
 
-    public int $name;
+    public int $unitId;
+    public int $count;
 
     protected $fillable = [
-        'name'
+        'unit_id',
+        'count'
     ];
 
-    protected $table = 'weekday';
+    protected $table = 'repetition';
 }

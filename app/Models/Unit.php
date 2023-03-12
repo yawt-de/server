@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Weekday extends Model
+class Unit extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,5 @@ class Weekday extends Model
         'name'
     ];
 
-    protected $table = 'weekday';
+    protected $table = 'unit';
 }
